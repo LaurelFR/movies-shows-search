@@ -5,7 +5,7 @@ function App() {
   return (
     <div className="App">
       <div className="container">
-        <Media />
+        <Media defaultMedia="Friends" />
         <footer>
           This project was coded by <strong>Laurel Rubel</strong> and is{" "}
           <a

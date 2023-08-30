@@ -7,3 +7,13 @@ form .search-box {
   max-width: 600px;
   margin-right: 15px;
 }
+
+.results {
+  padding: 20px;
+
+  text-align: center;
+}
+
+.results p {
+  margin: 0;
+}

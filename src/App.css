@@ -10,9 +10,5 @@ footer {
 
 .App {
   max-width: 1400px;
-  margin: 20px auto;
-}
-
-.container {
-  background: black;
+  margin: 50px auto;
 }
