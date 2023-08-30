@@ -1,0 +1,9 @@
+form .search {
+  background: green;
+  border: 1px solid green;
+}
+
+form .search-box {
+  max-width: 600px;
+  margin-right: 15px;
+}

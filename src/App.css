@@ -1,0 +1,18 @@
+body {
+  background: #272044;
+  color: white;
+}
+
+footer {
+  text-align: center;
+  color: white;
+}
+
+.App {
+  max-width: 1400px;
+  margin: 20px auto;
+}
+
+.container {
+  background: black;
+}
