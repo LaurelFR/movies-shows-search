@@ -9,19 +9,15 @@ export default function Media(props) {
   const [mediaSearch, setmediaSearch] = useState(props.defaultMedia);
 
   function handleResponse(response) {
-    console.log(response.data.results[0].type);
     setMediaData({
       ready: true,
-      title: response.data.results[0].name,
-      year: response.data.results[0].year,
-      image: response.data.results[0].image_url,
-      type: response.data.results[0].tmdb_type,
+      data: response.data.results,
     });
   }
 
   function search() {
     const apiKey = "SGfHVtB1SJqvdmLgoO4wND3nxPSvl6xH8RR2LqRw";
-    let apiUrl = `https://api.watchmode.com/v1/autocomplete-search/?apiKey=${apiKey}&search_value=${mediaSearch}&search_type=1`;
+    let apiUrl = `https://api.watchmode.com/v1/autocomplete-search/?apiKey=${apiKey}&search_value=${mediaSearch}&search_type=2`;
     axios.get(apiUrl).then(handleResponse);
   }
 
@@ -38,7 +34,7 @@ export default function Media(props) {
     return (
       <div className="Media">
         <h1 className="text-center mb-5">
-          Search for your favorite actors, movies, or TV shows!
+          Search for your favorite movies and TV shows!
         </h1>
         <form onSubmit={handleSubmit}>
           <div className="d-flex justify-content-center">
