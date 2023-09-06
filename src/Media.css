@@ -22,3 +22,7 @@ form .search-box {
 p {
   margin: 0;
 }
+
+.error {
+  font-size: 30px;
+}

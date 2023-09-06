@@ -7,8 +7,14 @@ import "./Media.css";
 export default function Media(props) {
   const [mediaData, setMediaData] = useState({ ready: false });
   const [mediaSearch, setmediaSearch] = useState(props.defaultMedia);
+  const [error, setError] = useState(false);
 
   function handleResponse(response) {
+    if (response.data.results.length === 0) {
+      setError(true);
+      return;
+    }
+    setError(false);
     setMediaData({
       ready: true,
       data: response.data.results,
@@ -18,7 +24,10 @@ export default function Media(props) {
   function search() {
     const apiKey = "SGfHVtB1SJqvdmLgoO4wND3nxPSvl6xH8RR2LqRw";
     let apiUrl = `https://api.watchmode.com/v1/autocomplete-search/?apiKey=${apiKey}&search_value=${mediaSearch}&search_type=2`;
-    axios.get(apiUrl).then(handleResponse);
+    axios
+      .get(apiUrl)
+      .then(handleResponse)
+      .catch(() => setError(true));
   }
 
   function handleSubmit(event) {
@@ -52,7 +61,7 @@ export default function Media(props) {
             />
           </div>
         </form>
-        <MediaInfo data={mediaData} />
+        <MediaInfo data={mediaData} error={error} />
       </div>
     );
   } else {
