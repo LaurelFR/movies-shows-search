@@ -3,7 +3,7 @@ import MediaStreaming from "./MediaStreaming";
 
 export default function MediaInfo(props) {
   const [clicked, setClicked] = useState(false);
-  const [id, setId] = useState("");
+  let id;
 
   function handleClick(event) {
     event.preventDefault();
@@ -20,7 +20,7 @@ export default function MediaInfo(props) {
       </div>
     );
   } else if (clicked) {
-    return <MediaStreaming id={id} />;
+    return <MediaStreaming />;
   } else
     return (
       <div className="MediaInfo">
@@ -34,6 +34,7 @@ export default function MediaInfo(props) {
                       src={result.image_url}
                       alt="movie poster"
                       className="img-fluid rounded mb-3"
+                      value={result.id}
                     />
                     <h2>{result.name}</h2>
                   </div>
